@@ -88,3 +88,17 @@ And check out the following files:
 
 ## Create a new Test file using javascript
 1. In the Test folder create a file test file ending with `spec.js` example `mytest.spec.js`
+2. The line const `{ test, expect } = require('@playwright/test');` is used to import specific functions from the Playwright testing module in a Node.js environment
+- The `test` function is used to declare a test. It allows you to define the name of the test and provide a function that contains the test logic.
+- The `expect` function is used to write assertions. Assertions are used to check if certain conditions hold true during the execution of your tests. If an assertion fails, the test will fail.
+- Example useage :
+```js
+const { test, expect } = require('@playwright/test');
+
+test('basic test', async ({ page }) => {
+    await page.goto('https://example.com');
+    const title = await page.title();
+    expect(title).toBe('Example Domain');
+});
+```
+- In Playwright, `page` is an object that represents a single tab or window in a browser. The page object provides methods to interact with the web page, such as navigating to URLs, clicking elements, filling forms, and extracting data. It is a core component when writing end-to-end tests with Playwright
